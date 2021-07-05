@@ -13,9 +13,11 @@ add_library(helloworld_lib SHARED
     include/HelloWorld.hpp
     include/blockchain/Block.hpp
     include/blockchain/Chain.hpp
+    include/transactions/Transaction.hpp
 	src/HelloWorld.cpp
 	src/blockchain/Block.cpp
 	src/blockchain/Chain.cpp
+	src/transactions/Transaction.cpp
 )
 add_library(helloworld::library ALIAS helloworld_lib)
 
@@ -60,6 +62,7 @@ add_executable(run-unittests
 	test/test_HelloWorld.cpp
 	test/test_Block.cpp
 	test/test_Chain.cpp
+	test/test_Transaction.cpp
 )
 target_include_directories(run-unittests
 	PUBLIC
