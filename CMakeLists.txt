@@ -13,10 +13,18 @@ add_library(helloworld_lib SHARED
     include/HelloWorld.hpp
     include/blockchain/Block.hpp
     include/blockchain/Chain.hpp
+    include/transactions/Asset.hpp
+    include/transactions/Buyer.hpp
+    include/transactions/Payment.hpp
+    include/transactions/Seller.hpp
     include/transactions/Transaction.hpp
 	src/HelloWorld.cpp
 	src/blockchain/Block.cpp
 	src/blockchain/Chain.cpp
+	src/transactions/Asset.cpp
+	src/transactions/Buyer.cpp
+	src/transactions/Payment.cpp
+	src/transactions/Seller.cpp
 	src/transactions/Transaction.cpp
 )
 add_library(helloworld::library ALIAS helloworld_lib)
