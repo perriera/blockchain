@@ -11,7 +11,9 @@ add_subdirectory(docopt)
 
 add_library(helloworld_lib SHARED
     include/HelloWorld.hpp
+    include/blockchain/Block.hpp
 	src/HelloWorld.cpp
+	src/blockchain/Block.cpp
 )
 add_library(helloworld::library ALIAS helloworld_lib)
 
@@ -54,6 +56,7 @@ target_compile_options(helloworld
 add_executable(run-unittests
 	test/main.cpp
 	test/test_HelloWorld.cpp
+	test/test_Block.cpp
 )
 target_include_directories(run-unittests
 	PUBLIC
