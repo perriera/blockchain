@@ -4,9 +4,15 @@
 #include <iostream>
 
 #include "../../extra/include/Definitions.hpp"
+#include "BitCoin.hpp"
 
-interface CurrencyInterface {
-  virtual std::string say_hello() const pure;
+interface CurrencyInterface{};
+
+class Currency implements CurrencyInterface with BitCoinInterface {
+  BitCoin _bitCoin;
+
+public:
+  virtual float value() const { return _bitCoin.value(); }
 };
 
 #endif // _CURRENCY_HPP
