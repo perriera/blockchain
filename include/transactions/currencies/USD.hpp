@@ -8,6 +8,8 @@
 
 class USD extends Currency {
 public:
+  USD(){};
+  USD(float amount) : Currency(amount){};
   virtual float value() const { return Currency::value() * 1.5; }
 };
 

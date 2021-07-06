@@ -27,8 +27,8 @@ SCENARIO("Verify Transaction (seller.sell(information))", "[Transaction]") {
   NewsWeekMagazine information;
 
   REQUIRE(seller.itemsToSell() == 0);
-  seller.stock(information);
-  seller.stock(information);
+  seller.stock(information, USD(5));
+  seller.stock(information, USD(5));
   REQUIRE(seller.itemsToSell() == 2);
   seller.sell(information);
   REQUIRE(seller.itemsToSell() == 1);
@@ -41,8 +41,8 @@ SCENARIO("Verify Transaction (buyer.buy(item))", "[Transaction]") {
   NewsWeekMagazine information;
 
   REQUIRE(seller.itemsToSell() == 0);
-  seller.stock(information);
-  seller.stock(information);
+  seller.stock(information, USD(5));
+  seller.stock(information, USD(5));
   REQUIRE(seller.itemsToSell() == 2);
   auto item = seller.sell(information);
   REQUIRE(seller.itemsToSell() == 1);

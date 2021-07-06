@@ -25,7 +25,9 @@ public:
   virtual void buy(const Item &item) { return _inventory.buy(item); }
   virtual Item sell(const Asset &asset) { return _inventory.sell(asset); }
   virtual long number() const { return _inventory.number(); }
-  virtual Item &stock(const Asset &asset) { return _inventory.stock(asset); }
+  virtual Item &stock(const Asset &asset, const Currency &cost) {
+    return _inventory.stock(asset, cost);
+  }
   virtual void unstock(const Item &item) { return _inventory.unstock(item); }
   virtual int itemsToSell() const { return _inventory.itemsToSell(); }
   virtual int itemsBought() const { return _inventory.itemsBought(); }

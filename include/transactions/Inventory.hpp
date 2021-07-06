@@ -41,8 +41,8 @@ public:
     return itemSold;
   }
   virtual long number() const { return -1; }
-  virtual Item &stock(const Asset &asset) {
-    auto item = Item().stock(asset);
+  virtual Item &stock(const Asset &asset, const Currency &cost) {
+    auto item = Item().stock(asset, cost);
     _items.push_back(item);
     return item;
   }

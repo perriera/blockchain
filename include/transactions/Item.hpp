@@ -12,7 +12,7 @@
 class Item;
 interface ItemInterface {
   virtual long number() const pure;
-  virtual Item &stock(const Asset &asset) pure;
+  virtual Item &stock(const Asset &asset, const Currency &cost) pure;
   virtual void unstock(const Item &item) pure;
   virtual int itemsToSell() const pure;
   virtual int itemsBought() const pure;
@@ -36,14 +36,16 @@ class Item implements ItemInterface {
   static long _globalNumber;
   long _number = -1;
   Asset _asset;
+  Currency _cost;
 
 public:
   Item(){};
   Item(long number, const Asset &asset) : _number(number), _asset(asset){};
   virtual long number() const { return _number; }
-  virtual Item &stock(const Asset &asset) {
+  virtual Item &stock(const Asset &asset, const Currency &cost) {
     _number = ++_globalNumber;
     _asset = asset;
+    _cost = cost;
     return *this;
   }
   virtual void unstock(const Item &item){};
