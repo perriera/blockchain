@@ -22,15 +22,13 @@ public:
   virtual Transaction deposit(const AssetInterface *asset);
   virtual Transaction acquire(const AssetInterface *asset);
   virtual Transaction withdraw(const AssetInterface *asset);
-  virtual void buy(const Asset &asset) { return _inventory.buy(asset); }
-  virtual void sell(const Asset &asset) { return _inventory.sell(asset); }
-  virtual void buy(const Asset &asset, int count) {
-    return _inventory.buy(asset, count);
-  }
+  virtual void buy(const Item &item) { return _inventory.buy(item); }
+  virtual Item sell(const Asset &asset) { return _inventory.sell(asset); }
   virtual long number() const { return _inventory.number(); }
   virtual Item &stock(const Asset &asset) { return _inventory.stock(asset); }
   virtual void unstock(const Item &item) { return _inventory.unstock(item); }
   virtual int itemsToSell() const { return _inventory.itemsToSell(); }
+  virtual int itemsBought() const { return _inventory.itemsBought(); }
 };
 
 #endif // _ENTITY_HPP

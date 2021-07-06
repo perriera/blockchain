@@ -21,9 +21,8 @@
 
 using namespace std;
 
-SCENARIO("Verify Transaction", "[Transaction]") {
+SCENARIO("Verify Transaction (seller.sell(information))", "[Transaction]") {
 
-  BillGates buyer;
   Walmart seller;
   NewsWeekMagazine information;
 
@@ -33,7 +32,21 @@ SCENARIO("Verify Transaction", "[Transaction]") {
   REQUIRE(seller.itemsToSell() == 2);
   seller.sell(information);
   REQUIRE(seller.itemsToSell() == 1);
+}
 
-  Transaction transaction1 = buyer.initiate(information);
-  Transaction transaction2 = seller.respond(&transaction1);
+SCENARIO("Verify Transaction (seller.buy(information))", "[Transaction]") {
+
+  BillGates buyer;
+  Walmart seller;
+  NewsWeekMagazine information;
+
+  REQUIRE(seller.itemsToSell() == 0);
+  seller.stock(information);
+  seller.stock(information);
+  REQUIRE(seller.itemsToSell() == 2);
+  auto item = seller.sell(information);
+  REQUIRE(seller.itemsToSell() == 1);
+  REQUIRE(buyer.itemsBought() == 0);
+  buyer.buy(item);
+  REQUIRE(buyer.itemsBought() == 1);
 }

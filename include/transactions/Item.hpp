@@ -15,6 +15,7 @@ interface ItemInterface {
   virtual Item &stock(const Asset &asset) pure;
   virtual void unstock(const Item &item) pure;
   virtual int itemsToSell() const pure;
+  virtual int itemsBought() const pure;
 };
 
 class Item implements ItemInterface {
@@ -47,6 +48,7 @@ public:
   }
   virtual void unstock(const Item &item){};
   virtual int itemsToSell() const { throw "Not implemented"; }
+  virtual int itemsBought() const { throw "Not implemented"; }
 };
 
 typedef std::vector<Item> ItemList;
