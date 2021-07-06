@@ -34,7 +34,7 @@ SCENARIO("Verify Transaction (seller.sell(information))", "[Transaction]") {
   REQUIRE(seller.itemsToSell() == 1);
 }
 
-SCENARIO("Verify Transaction (seller.buy(information))", "[Transaction]") {
+SCENARIO("Verify Transaction (buyer.buy(item))", "[Transaction]") {
 
   BillGates buyer;
   Walmart seller;
