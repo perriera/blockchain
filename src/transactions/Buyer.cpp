@@ -3,12 +3,10 @@
 
 using namespace std;
 
-Transaction Buyer::initiate(const AssetInterface &asset,
-                            const CurrencyInterface &currency) {
+Transaction Buyer::initiate(const AssetInterface &asset) {
   Transaction transaction;
   transaction.setInitiator(this);
   transaction.set(&asset);
-  transaction.set(&currency);
   return transaction;
 }
 
@@ -17,12 +15,12 @@ Transaction Buyer::respond(TransactionInterface *transaction) {}
 Transaction Buyer::liquify(const AssetInterface *asset) {
   return Transaction();
 }
-Transaction Buyer::deposit(const CurrencyInterface *currency) {
+Transaction Buyer::deposit(const AssetInterface *asset) {
   return Transaction();
 }
 Transaction Buyer::acquire(const AssetInterface *asset) {
   return Transaction();
 }
-Transaction Buyer::withdraw(const CurrencyInterface *currency) {
+Transaction Buyer::withdraw(const AssetInterface *asset) {
   return Transaction();
 }

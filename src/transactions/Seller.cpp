@@ -1,10 +1,10 @@
 #include "../../include/transactions/Seller.hpp"
+#include "../../include/transactions/Asset.hpp"
 #include <iostream>
 
 using namespace std;
 
-Transaction Seller::initiate(const AssetInterface &asset,
-                             const CurrencyInterface &money) {}
+Transaction Seller::initiate(const AssetInterface &asset) {}
 
 Transaction Seller::respond(TransactionInterface *transaction) {
   transaction->setResponder(this);
@@ -19,12 +19,12 @@ bool Seller::has(const AssetInterface *asset) const { return true; }
 Transaction Seller::liquify(const AssetInterface *asset) {
   return Transaction();
 }
-Transaction Seller::deposit(const CurrencyInterface *currency) {
+Transaction Seller::deposit(const AssetInterface *asset) {
   return Transaction();
 }
 Transaction Seller::acquire(const AssetInterface *asset) {
   return Transaction();
 }
-Transaction Seller::withdraw(const CurrencyInterface *currency) {
+Transaction Seller::withdraw(const AssetInterface *asset) {
   return Transaction();
 }

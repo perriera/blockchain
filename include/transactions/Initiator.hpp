@@ -9,10 +9,9 @@
 #include "Transaction.hpp"
 
 interface InitiatorInterface {
-  virtual Transaction initiate(const AssetInterface &asset,
-                               const CurrencyInterface &money) pure;
+  virtual Transaction initiate(const AssetInterface &asset) pure;
   virtual Transaction acquire(const AssetInterface *asset) pure;
-  virtual Transaction withdraw(const CurrencyInterface *currency) pure;
+  virtual Transaction withdraw(const AssetInterface *asset) pure;
 };
 
 #endif // _INITIATOR_HPP

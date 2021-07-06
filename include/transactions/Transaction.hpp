@@ -50,7 +50,6 @@ interface TransactionInterface extends ProviderInterface with
   virtual void setResponder(ResponderInterface * responder) pure;
   virtual void set(const AssetInterface *responder) pure;
   virtual const AssetInterface *asset() const pure;
-  virtual const CurrencyInterface *currency() const pure;
 };
 
 class Transaction implements TransactionInterface {
@@ -58,7 +57,6 @@ private:
   InitiatorInterface *_initiator = nullptr;
   ResponderInterface *_responder = nullptr;
   const AssetInterface *_asset;
-  const CurrencyInterface *_currency;
 
 public:
   virtual void setInitiator(InitiatorInterface *initiator) {
@@ -68,11 +66,7 @@ public:
     this->_responder = responder;
   };
   virtual void set(const AssetInterface *asset) { this->_asset = asset; };
-  virtual void set(const CurrencyInterface *currency) {
-    this->_currency = currency;
-  };
   virtual const AssetInterface *asset() const { return this->_asset; };
-  virtual const CurrencyInterface *currency() const { return this->_currency; };
   virtual void provide();
   virtual void consume();
 };

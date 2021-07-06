@@ -10,6 +10,6 @@ void Transaction::provide() {
   _initiator->acquire(this->_asset);
 }
 void Transaction::consume() {
-  _responder->deposit(this->_currency);
-  _initiator->withdraw(this->_currency);
+  _responder->deposit(this->_asset);
+  _initiator->withdraw(this->_asset);
 }

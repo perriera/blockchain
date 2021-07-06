@@ -12,6 +12,7 @@
 #include "../include/transactions/Seller.hpp"
 #include "../include/transactions/Transaction.hpp"
 #include "../include/transactions/assets/Information.hpp"
+#include "../include/transactions/assets/examples/NewsWeek.hpp"
 #include "../include/transactions/currencies/USD.hpp"
 
 #include "catch.hpp"
@@ -22,9 +23,8 @@ SCENARIO("Verify Transaction", "[Transaction]") {
 
   Buyer buyer;
   Seller seller;
-  Information information;
-  USD usd;
+  NewsWeekMagazine information;
 
-  Transaction transaction1 = buyer.initiate(information, usd);
+  Transaction transaction1 = buyer.initiate(information);
   Transaction transaction2 = seller.respond(&transaction1);
 }

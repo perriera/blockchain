@@ -4,14 +4,11 @@
 #include <iostream>
 
 #include "../../extra/include/Definitions.hpp"
+#include "Currency.hpp"
 
 interface AssetInterface {
-  virtual std::string say_hello() const pure;
-};
-
-class Asset implements AssetInterface {
-public:
-  virtual std::string say_hello() const;
+  virtual float cost() const pure;
+  virtual const CurrencyInterface &currency() const pure;
 };
 
 #endif // _ASSET_HPP

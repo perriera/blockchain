@@ -12,13 +12,12 @@ interface BuyerInterface extends InitiatorInterface with ResponderInterface{};
 
 class Buyer implements BuyerInterface {
 public:
-  virtual Transaction initiate(const AssetInterface &asset,
-                               const CurrencyInterface &currency);
+  virtual Transaction initiate(const AssetInterface &asset);
   virtual Transaction respond(TransactionInterface *transaction);
   virtual Transaction liquify(const AssetInterface *asset);
-  virtual Transaction deposit(const CurrencyInterface *currency);
+  virtual Transaction deposit(const AssetInterface *asset);
   virtual Transaction acquire(const AssetInterface *asset);
-  virtual Transaction withdraw(const CurrencyInterface *currency);
+  virtual Transaction withdraw(const AssetInterface *asset);
 };
 
 #endif // _BUYER_HPP

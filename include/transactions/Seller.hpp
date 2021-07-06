@@ -13,14 +13,13 @@ interface SellerInterface extends InitiatorInterface with ResponderInterface {
 };
 class Seller implements SellerInterface {
 public:
-  virtual Transaction initiate(const AssetInterface &asset,
-                               const CurrencyInterface &money);
+  virtual Transaction initiate(const AssetInterface &asset);
   virtual Transaction respond(TransactionInterface *transaction);
   virtual bool has(const AssetInterface *asset) const;
   virtual Transaction liquify(const AssetInterface *asset);
-  virtual Transaction deposit(const CurrencyInterface *currency);
+  virtual Transaction deposit(const AssetInterface *asset);
   virtual Transaction acquire(const AssetInterface *asset);
-  virtual Transaction withdraw(const CurrencyInterface *currency);
+  virtual Transaction withdraw(const AssetInterface *asset);
 };
 
 #endif // _SELLER_HPP
