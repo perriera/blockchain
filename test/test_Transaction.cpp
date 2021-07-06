@@ -8,13 +8,25 @@
 #include "../extra/include/crc64_support.hpp"
 #include "../extra/include/directory.hpp"
 #include "../extra/include/string_support.hpp"
+#include "../include/transactions/Buyer.hpp"
+#include "../include/transactions/Seller.hpp"
 #include "../include/transactions/Transaction.hpp"
+#include "../include/transactions/assets/Information.hpp"
+#include "../include/transactions/currencies/USD.hpp"
+
 #include "catch.hpp"
 
 using namespace std;
 
 SCENARIO("Verify Transaction", "[Transaction]") {
 
-  Transaction transaction;
-  REQUIRE(transaction.say_hello() == "Hello, world");
+  Buyer buyer;
+  Seller seller;
+  Information information;
+  USD usd;
+
+  Transaction transaction1 = buyer.initiate(information, usd);
+  Transaction transaction2 = seller.respond(transaction1);
+
+  REQUIRE(transaction1.say_hello() == "Hello, world");
 }

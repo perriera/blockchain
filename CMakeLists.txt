@@ -13,6 +13,9 @@ add_library(helloworld_lib SHARED
     include/HelloWorld.hpp
     include/blockchain/Block.hpp
     include/blockchain/Chain.hpp
+    include/transactions/assets/Information.hpp
+    include/transactions/currencies/CDN.hpp
+    include/transactions/currencies/USD.hpp
     include/transactions/types/BankAccount.hpp
     include/transactions/types/CreditCard.hpp
     include/transactions/types/DebitCard.hpp
@@ -27,6 +30,9 @@ add_library(helloworld_lib SHARED
 	src/HelloWorld.cpp
 	src/blockchain/Block.cpp
 	src/blockchain/Chain.cpp
+    src/transactions/assets/Information.cpp
+    src/transactions/currencies/CDN.cpp
+    src/transactions/currencies/USD.cpp
     src/transactions/types/BankAccount.cpp
     src/transactions/types/CreditCard.cpp
     src/transactions/types/DebitCard.cpp
