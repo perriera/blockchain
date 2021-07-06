@@ -15,13 +15,16 @@ interface AssetInterface {
 
 class Asset implements AssetInterface {
   friend inline bool operator==(const Asset &a, const Asset &b) {
-    return a._cost == b._cost;
+    return a._details == b._details;
   }
   friend inline bool operator!=(const Asset &a, const Asset &b) {
     return !(a == b);
   }
   float _cost;
   Currency _currency;
+
+protected:
+  std::string _details = typeid(*this).name();
 
 public:
   Asset() : _cost(0.00) {}
