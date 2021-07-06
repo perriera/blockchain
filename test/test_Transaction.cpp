@@ -14,6 +14,8 @@
 #include "../include/transactions/assets/Information.hpp"
 #include "../include/transactions/assets/examples/NewsWeek.hpp"
 #include "../include/transactions/currencies/USD.hpp"
+#include "../include/transactions/entities/BillGates.hpp"
+#include "../include/transactions/entities/Walmart.hpp"
 
 #include "catch.hpp"
 
@@ -21,8 +23,8 @@ using namespace std;
 
 SCENARIO("Verify Transaction", "[Transaction]") {
 
-  Buyer buyer;
-  Seller seller;
+  BillGates buyer;
+  Walmart seller;
   NewsWeekMagazine information;
 
   Transaction transaction1 = buyer.initiate(information);
