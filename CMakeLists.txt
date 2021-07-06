@@ -40,8 +40,6 @@ add_library(helloworld_lib SHARED
     src/transactions/assets/Information.cpp
     src/transactions/assets/Money.cpp
     src/transactions/assets/Services.cpp
-    src/transactions/currencies/CDN.cpp
-    src/transactions/currencies/USD.cpp
     src/transactions/types/BankAccount.cpp
     src/transactions/types/CreditCard.cpp
     src/transactions/types/DebitCard.cpp

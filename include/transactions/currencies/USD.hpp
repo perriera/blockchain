@@ -6,9 +6,9 @@
 #include "../../../extra/include/Definitions.hpp"
 #include "../Currency.hpp"
 
-class USD implements CurrencyInterface {
+class USD extends Currency {
 public:
-  virtual std::string say_hello() const;
+  virtual float value() const { return Currency::value() * 1.5; }
 };
 
 #endif // _USD_HPP

@@ -6,9 +6,9 @@
 #include "../../../extra/include/Definitions.hpp"
 #include "../Currency.hpp"
 
-class CDN implements CurrencyInterface {
+class CDN extends Currency {
 public:
-  virtual std::string say_hello() const;
+  virtual float value() const { return Currency::value() * 1.2; }
 };
 
 #endif // _CDN_HPP
