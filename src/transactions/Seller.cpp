@@ -3,17 +3,28 @@
 
 using namespace std;
 
-string Seller::say_hello() const { return "Hello, world"; }
-
 Transaction Seller::initiate(const AssetInterface &asset,
                              const CurrencyInterface &money) {}
 
 Transaction Seller::respond(TransactionInterface *transaction) {
-  std::cout << "hello, jesus" << std::endl;
-  auto asset = transaction->asset();
-
-  if (this->has(transaction->asset()))
+  transaction->setResponder(this);
+  if (this->has(transaction->asset())) {
     transaction->provide();
+    transaction->consume();
+  }
 }
 
 bool Seller::has(const AssetInterface *asset) const { return true; }
+
+Transaction Seller::liquify(const AssetInterface *asset) {
+  return Transaction();
+}
+Transaction Seller::deposit(const CurrencyInterface *currency) {
+  return Transaction();
+}
+Transaction Seller::acquire(const AssetInterface *asset) {
+  return Transaction();
+}
+Transaction Seller::withdraw(const CurrencyInterface *currency) {
+  return Transaction();
+}

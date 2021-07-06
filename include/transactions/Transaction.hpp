@@ -71,10 +71,7 @@ public:
   virtual void set(const CurrencyInterface *currency) {
     this->_currency = currency;
   };
-  virtual const AssetInterface *asset() const {
-    std::cout << "hello, jesus" << std::endl;
-    return this->_asset;
-  };
+  virtual const AssetInterface *asset() const { return this->_asset; };
   virtual const CurrencyInterface *currency() const { return this->_currency; };
   virtual void provide();
   virtual void consume();

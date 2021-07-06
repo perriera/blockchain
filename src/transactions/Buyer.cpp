@@ -3,8 +3,6 @@
 
 using namespace std;
 
-string Buyer::say_hello() const { return "Hello, world"; }
-
 Transaction Buyer::initiate(const AssetInterface &asset,
                             const CurrencyInterface &currency) {
   Transaction transaction;
@@ -15,3 +13,16 @@ Transaction Buyer::initiate(const AssetInterface &asset,
 }
 
 Transaction Buyer::respond(TransactionInterface *transaction) {}
+
+Transaction Buyer::liquify(const AssetInterface *asset) {
+  return Transaction();
+}
+Transaction Buyer::deposit(const CurrencyInterface *currency) {
+  return Transaction();
+}
+Transaction Buyer::acquire(const AssetInterface *asset) {
+  return Transaction();
+}
+Transaction Buyer::withdraw(const CurrencyInterface *currency) {
+  return Transaction();
+}

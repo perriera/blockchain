@@ -8,6 +8,8 @@
 
 interface ResponderInterface {
   virtual Transaction respond(TransactionInterface * transaction) pure;
+  virtual Transaction liquify(const AssetInterface *asset) pure;
+  virtual Transaction deposit(const CurrencyInterface *currency) pure;
 };
 
 #endif // _RESPONDER_HPP

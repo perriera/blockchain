@@ -9,16 +9,18 @@
 #include "Transaction.hpp"
 
 interface SellerInterface extends InitiatorInterface with ResponderInterface {
-  virtual std::string say_hello() const pure;
   virtual bool has(const AssetInterface *asset) const pure;
 };
 class Seller implements SellerInterface {
 public:
-  virtual std::string say_hello() const;
   virtual Transaction initiate(const AssetInterface &asset,
                                const CurrencyInterface &money);
   virtual Transaction respond(TransactionInterface *transaction);
   virtual bool has(const AssetInterface *asset) const;
+  virtual Transaction liquify(const AssetInterface *asset);
+  virtual Transaction deposit(const CurrencyInterface *currency);
+  virtual Transaction acquire(const AssetInterface *asset);
+  virtual Transaction withdraw(const CurrencyInterface *currency);
 };
 
 #endif // _SELLER_HPP
