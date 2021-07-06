@@ -29,6 +29,7 @@ add_library(helloworld_lib SHARED
     include/transactions/Buyer.hpp
     include/transactions/Currency.hpp
     include/transactions/Entity.hpp
+    include/transactions/Inventory.hpp
     include/transactions/Payment.hpp
     include/transactions/Seller.hpp
     include/transactions/Transaction.hpp
@@ -50,6 +51,7 @@ add_library(helloworld_lib SHARED
 	src/transactions/Asset.cpp
 	src/transactions/Buyer.cpp
 	src/transactions/Entity.cpp
+	src/transactions/Inventory.cpp
 	src/transactions/Payment.cpp
 	src/transactions/Seller.cpp
 	src/transactions/Transaction.cpp

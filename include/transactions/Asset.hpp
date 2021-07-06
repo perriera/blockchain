@@ -6,6 +6,7 @@
 
 #include "../../extra/include/Definitions.hpp"
 #include "Currency.hpp"
+#include "currencies/USD.hpp"
 
 interface AssetInterface {
   virtual float cost() const pure;
@@ -13,10 +14,18 @@ interface AssetInterface {
 };
 
 class Asset implements AssetInterface {
-  float _cost = 5.00;
+  friend inline bool operator==(const Asset &a, const Asset &b) {
+    return a._cost == b._cost;
+  }
+  friend inline bool operator!=(const Asset &a, const Asset &b) {
+    return !(a == b);
+  }
+  float _cost;
   const CurrencyInterface &_currency;
+  const CurrencyInterface &defaultCurrency = USD();
 
 public:
+  Asset() : _cost(0.00), _currency(defaultCurrency){};
   Asset(const float cost, const CurrencyInterface &currency)
       : _cost(cost), _currency(currency){};
   virtual float cost() const { return _cost; };
