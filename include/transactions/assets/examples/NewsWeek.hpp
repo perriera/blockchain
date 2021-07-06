@@ -7,13 +7,12 @@
 #include "../../currencies/USD.hpp"
 #include "../Information.hpp"
 
-class NewsWeekMagazine implements InformationInterface {
-  float _cost = 5.00;
-  USD _inUSD;
+class NewsWeekMagazine extends Asset {
+  const float _cost = 5.00;
+  const USD _inUSD;
 
 public:
-  virtual float cost() const { return _cost; };
-  virtual const CurrencyInterface &currency() const { return _inUSD; };
+  NewsWeekMagazine() : Asset(_cost, _inUSD) {}
 };
 
 #endif // _NEWSWEEK_HPP
