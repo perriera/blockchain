@@ -21,12 +21,11 @@ class Asset implements AssetInterface {
     return !(a == b);
   }
   float _cost;
-  const CurrencyInterface &_currency;
-  const CurrencyInterface &defaultCurrency = USD();
+  Currency _currency;
 
 public:
-  Asset() : _cost(0.00), _currency(defaultCurrency){};
-  Asset(const float cost, const CurrencyInterface &currency)
+  Asset() : _cost(0.00) {}
+  Asset(const float cost, const Currency &currency)
       : _cost(cost), _currency(currency){};
   virtual float cost() const { return _cost; };
   virtual const CurrencyInterface &currency() const { return _currency; };

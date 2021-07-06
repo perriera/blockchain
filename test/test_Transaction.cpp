@@ -27,7 +27,8 @@ SCENARIO("Verify Transaction", "[Transaction]") {
   Walmart seller;
   NewsWeekMagazine information;
 
-  seller.buy(information, 50);
+  seller.stock(information);
+  seller.stock(information);
 
   Transaction transaction1 = buyer.initiate(information);
   Transaction transaction2 = seller.respond(&transaction1);

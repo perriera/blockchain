@@ -8,11 +8,10 @@
 #include "../Information.hpp"
 
 class NewsWeekMagazine extends Asset {
-  const float _cost = 5.00;
-  const USD _inUSD;
+  std::string _details = "Your very own copy of NewsWeekMagazine";
 
 public:
-  NewsWeekMagazine() : Asset(_cost, _inUSD) {}
+  NewsWeekMagazine() : Asset(5.00, USD()) {}
 };
 
 #endif // _NEWSWEEK_HPP
