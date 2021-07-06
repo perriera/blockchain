@@ -50,6 +50,8 @@ interface TransactionInterface extends ProviderInterface with
   virtual void setResponder(ResponderInterface * responder) pure;
   virtual void set(const AssetInterface *responder) pure;
   virtual const AssetInterface *asset() const pure;
+  virtual InitiatorInterface *initiator() pure;
+  virtual ResponderInterface *responder() pure;
 };
 
 class Transaction implements TransactionInterface {
@@ -69,6 +71,8 @@ public:
   virtual const AssetInterface *asset() const { return this->_asset; };
   virtual void provide();
   virtual void consume();
+  virtual InitiatorInterface *initiator() { return _initiator; }
+  virtual ResponderInterface *responder() { return _responder; }
 };
 
 #endif // _TRANSACTION_HPP

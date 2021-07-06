@@ -9,7 +9,12 @@
 #include "Item.hpp"
 #include "Transaction.hpp"
 
-interface InventoryInterface {
+interface HasInterface {
+  virtual bool has(const ItemInterface &item) const pure;
+  virtual bool has(const AssetInterface &asset) const pure;
+};
+
+interface InventoryInterface extends HasInterface {
   virtual void buy(const Item &item) pure;
   virtual Item sell(const Asset &asset) pure;
 };
@@ -50,6 +55,18 @@ public:
   };
   virtual int itemsToSell() const { return _items.size(); }
   virtual int itemsBought() const { return _items.size(); }
+  virtual bool has(const ItemInterface &item) const {
+    for (auto _item : _items)
+      if (_item == reinterpret_cast<const Item &>(item))
+        return true;
+    return false;
+  };
+  virtual bool has(const AssetInterface &asset) const {
+    for (auto _item : _items)
+      if (_item == reinterpret_cast<const Asset &>(asset))
+        return true;
+    return false;
+  };
 };
 
 #endif // _INVENTORY_HPP

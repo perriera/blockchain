@@ -10,7 +10,13 @@ Transaction Entity::initiate(const AssetInterface &asset) {
   return transaction;
 }
 
-Transaction Entity::respond(TransactionInterface *transaction) {}
+Transaction Entity::respond(TransactionInterface *transaction) {
+  transaction->setResponder(this);
+  if (this->has(*transaction->asset())) {
+    transaction->provide();
+    transaction->consume();
+  }
+}
 
 Transaction Entity::liquify(const AssetInterface *asset) {
   return Transaction();

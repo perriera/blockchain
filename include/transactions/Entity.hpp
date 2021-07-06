@@ -29,6 +29,14 @@ public:
   virtual void unstock(const Item &item) { return _inventory.unstock(item); }
   virtual int itemsToSell() const { return _inventory.itemsToSell(); }
   virtual int itemsBought() const { return _inventory.itemsBought(); }
+  virtual bool has(const ItemInterface &item) const {
+    return _inventory.has(item);
+  };
+  virtual bool has(const AssetInterface &asset) const {
+    return _inventory.has(asset);
+  };
+  // virtual InitiatorInterface *initiator() { return _initiator; }
+  // virtual ResponderInterface *responder() { return _responder; }
 };
 
 #endif // _ENTITY_HPP

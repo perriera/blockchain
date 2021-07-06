@@ -50,3 +50,20 @@ SCENARIO("Verify Transaction (buyer.buy(item))", "[Transaction]") {
   buyer.buy(item);
   REQUIRE(buyer.itemsBought() == 1);
 }
+
+// SCENARIO("Verify Transaction (buyer.initiate(information))", "[Transaction]")
+// {
+
+//   BillGates buyer;
+//   Walmart seller;
+//   NewsWeekMagazine information;
+
+//   REQUIRE(seller.itemsToSell() == 0);
+//   seller.stock(information);
+//   seller.stock(information);
+//   REQUIRE(seller.itemsToSell() == 2);
+//   Transaction t1 = buyer.initiate(information);
+//   Transaction t2 = seller.respond(&t1);
+//   REQUIRE(buyer.itemsBought() == 0);
+//   REQUIRE(buyer.itemsBought() == 1);
+// }
