@@ -1,12 +1,12 @@
-#ifndef _MONEY_HPP
-#define _MONEY_HPP
+#ifndef _CURRENCY_HPP
+#define _CURRENCY_HPP
 
 #include <iostream>
 
 #include "../../extra/include/Definitions.hpp"
 
-interface MoneyInterface {
+interface CurrencyInterface {
   virtual std::string say_hello() const pure;
 };
 
-#endif // _MONEY_HPP
+#endif // _CURRENCY_HPP

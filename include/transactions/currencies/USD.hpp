@@ -4,9 +4,9 @@
 #include <iostream>
 
 #include "../../../extra/include/Definitions.hpp"
-#include "../Money.hpp"
+#include "../Currency.hpp"
 
-class USD implements MoneyInterface {
+class USD implements CurrencyInterface {
 public:
   virtual std::string say_hello() const;
 };

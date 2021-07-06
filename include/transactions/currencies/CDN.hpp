@@ -4,9 +4,9 @@
 #include <iostream>
 
 #include "../../../extra/include/Definitions.hpp"
-#include "../Money.hpp"
+#include "../Currency.hpp"
 
-class CDN implements MoneyInterface {
+class CDN implements CurrencyInterface {
 public:
   virtual std::string say_hello() const;
 };

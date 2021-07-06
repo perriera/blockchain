@@ -13,7 +13,10 @@ add_library(helloworld_lib SHARED
     include/HelloWorld.hpp
     include/blockchain/Block.hpp
     include/blockchain/Chain.hpp
+    include/transactions/assets/Goods.hpp
     include/transactions/assets/Information.hpp
+    include/transactions/assets/Money.hpp
+    include/transactions/assets/Services.hpp
     include/transactions/currencies/CDN.hpp
     include/transactions/currencies/USD.hpp
     include/transactions/types/BankAccount.hpp
@@ -24,13 +27,17 @@ add_library(helloworld_lib SHARED
     include/transactions/types/Purchase.hpp
     include/transactions/Asset.hpp
     include/transactions/Buyer.hpp
+    include/transactions/Currency.hpp
     include/transactions/Payment.hpp
     include/transactions/Seller.hpp
     include/transactions/Transaction.hpp
 	src/HelloWorld.cpp
 	src/blockchain/Block.cpp
 	src/blockchain/Chain.cpp
+    src/transactions/assets/Goods.cpp
     src/transactions/assets/Information.cpp
+    src/transactions/assets/Money.cpp
+    src/transactions/assets/Services.cpp
     src/transactions/currencies/CDN.cpp
     src/transactions/currencies/USD.cpp
     src/transactions/types/BankAccount.cpp

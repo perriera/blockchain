@@ -15,7 +15,7 @@ class Seller implements SellerInterface {
 public:
   virtual std::string say_hello() const;
   virtual Transaction initiate(const AssetInterface &asset,
-                               const MoneyInterface &money) const {}
+                               const CurrencyInterface &money) const {}
   virtual Transaction respond(const TransactionInterface &transaction) const {}
 };
 
