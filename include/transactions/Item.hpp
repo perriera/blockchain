@@ -14,9 +14,24 @@ interface ItemInterface {
   virtual long number() const pure;
   virtual Item &stock(const Asset &asset) pure;
   virtual void unstock(const Item &item) pure;
+  virtual int itemsToSell() const pure;
 };
 
 class Item implements ItemInterface {
+  friend inline bool operator==(const Item &a, const Item &b) {
+    return a._number == b._number;
+  }
+  friend inline bool operator!=(const Item &a, const Item &b) {
+    return !(a == b);
+  }
+  friend inline bool operator==(const Item &a, const Asset &b) {
+    std::string item_a = a._asset;
+    std::string item_b = b;
+    return item_a == item_b;
+  }
+  friend inline bool operator!=(const Item &a, const Asset &b) {
+    return !(a == b);
+  }
   static long _globalNumber;
   long _number = -1;
   Asset _asset;
@@ -31,6 +46,7 @@ public:
     return *this;
   }
   virtual void unstock(const Item &item){};
+  virtual int itemsToSell() const { throw "Not implemented"; }
 };
 
 typedef std::vector<Item> ItemList;

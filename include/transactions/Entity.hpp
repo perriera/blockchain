@@ -30,6 +30,7 @@ public:
   virtual long number() const { return _inventory.number(); }
   virtual Item &stock(const Asset &asset) { return _inventory.stock(asset); }
   virtual void unstock(const Item &item) { return _inventory.unstock(item); }
+  virtual int itemsToSell() const { return _inventory.itemsToSell(); }
 };
 
 #endif // _ENTITY_HPP

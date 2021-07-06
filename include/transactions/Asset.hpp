@@ -32,6 +32,7 @@ public:
       : _cost(cost), _currency(currency){};
   virtual float cost() const { return _cost; };
   virtual const CurrencyInterface &currency() const { return _currency; };
+  operator const std::string &() const { return _details; }
 };
 
 typedef std::vector<Asset> AssetList;

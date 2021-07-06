@@ -19,7 +19,17 @@ class Inventory implements InventoryInterface with ItemInterface {
 
 public:
   virtual void buy(const Asset &asset) { throw "Not implemented (yet)"; }
-  virtual void sell(const Asset &asset) { throw "Not implemented (yet)"; }
+  virtual void sell(const Asset &asset) {
+    ItemList newList;
+    bool sold = false;
+    for (auto _item : _items)
+      if (_item == asset && !sold) {
+        std::cout << "item sold" << std::endl;
+        sold = true;
+      } else
+        newList.push_back(_item);
+    this->_items = newList;
+  }
   virtual void buy(const Asset &asset, int count) {
     for (int i = 0; i < count; i++)
       buy(asset);
@@ -37,6 +47,7 @@ public:
         newList.push_back(_item);
     this->_items = newList;
   };
+  virtual int itemsToSell() const { return _items.size(); }
 };
 
 #endif // _INVENTORY_HPP
