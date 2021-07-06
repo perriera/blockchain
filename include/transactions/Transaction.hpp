@@ -32,13 +32,52 @@
  * https://en.wikipedia.org/wiki/Financial_transaction
  *
  */
-interface TransactionInterface {
-  virtual std::string say_hello() const pure;
+interface InitiatorInterface;
+interface ResponderInterface;
+interface AssetInterface;
+interface CurrencyInterface;
+
+interface ProviderInterface {
+  virtual void provide() pure;
+};
+interface ConsumerInterface {
+  virtual void consume() pure;
+};
+
+interface TransactionInterface extends ProviderInterface with
+    ConsumerInterface {
+  virtual void setInitiator(InitiatorInterface * initiator) pure;
+  virtual void setResponder(ResponderInterface * responder) pure;
+  virtual void set(const AssetInterface *responder) pure;
+  virtual const AssetInterface *asset() const pure;
+  virtual const CurrencyInterface *currency() const pure;
 };
 
 class Transaction implements TransactionInterface {
+private:
+  InitiatorInterface *_initiator = nullptr;
+  ResponderInterface *_responder = nullptr;
+  const AssetInterface *_asset;
+  const CurrencyInterface *_currency;
+
 public:
-  virtual std::string say_hello() const;
+  virtual void setInitiator(InitiatorInterface *initiator) {
+    this->_initiator = initiator;
+  };
+  virtual void setResponder(ResponderInterface *responder) {
+    this->_responder = responder;
+  };
+  virtual void set(const AssetInterface *asset) { this->_asset = asset; };
+  virtual void set(const CurrencyInterface *currency) {
+    this->_currency = currency;
+  };
+  virtual const AssetInterface *asset() const {
+    std::cout << "hello, jesus" << std::endl;
+    return this->_asset;
+  };
+  virtual const CurrencyInterface *currency() const { return this->_currency; };
+  virtual void provide();
+  virtual void consume();
 };
 
 #endif // _TRANSACTION_HPP

@@ -26,7 +26,5 @@ SCENARIO("Verify Transaction", "[Transaction]") {
   USD usd;
 
   Transaction transaction1 = buyer.initiate(information, usd);
-  Transaction transaction2 = seller.respond(transaction1);
-
-  REQUIRE(transaction1.say_hello() == "Hello, world");
+  Transaction transaction2 = seller.respond(&transaction1);
 }

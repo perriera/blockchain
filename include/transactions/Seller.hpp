@@ -10,13 +10,15 @@
 
 interface SellerInterface extends InitiatorInterface with ResponderInterface {
   virtual std::string say_hello() const pure;
+  virtual bool has(const AssetInterface *asset) const pure;
 };
 class Seller implements SellerInterface {
 public:
   virtual std::string say_hello() const;
   virtual Transaction initiate(const AssetInterface &asset,
-                               const CurrencyInterface &money) const {}
-  virtual Transaction respond(const TransactionInterface &transaction) const {}
+                               const CurrencyInterface &money);
+  virtual Transaction respond(TransactionInterface *transaction);
+  virtual bool has(const AssetInterface *asset) const;
 };
 
 #endif // _SELLER_HPP

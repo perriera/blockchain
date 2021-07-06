@@ -3,4 +3,5 @@
 
 using namespace std;
 
-string Transaction::say_hello() const { return "Hello, world"; }
+void Transaction::provide() {}
+void Transaction::consume() {}

@@ -10,7 +10,7 @@
 
 interface InitiatorInterface {
   virtual Transaction initiate(const AssetInterface &asset,
-                               const CurrencyInterface &money) const pure;
+                               const CurrencyInterface &money) pure;
 };
 
 #endif // _INITIATOR_HPP

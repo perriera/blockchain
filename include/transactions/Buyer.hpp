@@ -16,8 +16,8 @@ class Buyer implements BuyerInterface {
 public:
   virtual std::string say_hello() const;
   virtual Transaction initiate(const AssetInterface &asset,
-                               const CurrencyInterface &money) const {}
-  virtual Transaction respond(const TransactionInterface &transaction) const {}
+                               const CurrencyInterface &currency);
+  virtual Transaction respond(TransactionInterface *transaction);
 };
 
 #endif // _BUYER_HPP

@@ -7,8 +7,7 @@
 #include "Transaction.hpp"
 
 interface ResponderInterface {
-  virtual Transaction respond(const TransactionInterface &transaction)
-      const pure;
+  virtual Transaction respond(TransactionInterface * transaction) pure;
 };
 
 #endif // _RESPONDER_HPP
