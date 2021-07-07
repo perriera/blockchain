@@ -42,8 +42,8 @@ public:
   virtual bool has(const AssetInterface &asset) const {
     return _inventory.has(asset);
   };
-  // virtual InitiatorInterface *initiator() { return _initiator; }
-  // virtual ResponderInterface *responder() { return _responder; }
+  virtual float cost() const { throw "Not implemented"; };
+  virtual float price() const { throw "Not implemented"; };
 };
 
 #endif // _ENTITY_HPP

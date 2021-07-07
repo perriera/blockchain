@@ -24,7 +24,10 @@ class Inventory implements InventoryInterface with ItemInterface {
 
 public:
   virtual void buy(const Item &item, const Currency &currency) {
-    _items.push_back(item);
+    if (currency > item.price())
+      _items.push_back(item);
+    else
+      throw "Insufficient funds";
   }
   virtual Item sell(const Asset &asset, const Currency &currency) {
     Item itemSold;
@@ -69,6 +72,8 @@ public:
         return true;
     return false;
   };
+  virtual float cost() const { throw "Not implemented"; };
+  virtual float price() const { throw "Not implemented"; };
 };
 
 #endif // _INVENTORY_HPP

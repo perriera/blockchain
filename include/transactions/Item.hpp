@@ -9,8 +9,13 @@
 #include "Currency.hpp"
 #include "Transaction.hpp"
 
+interface MarkUpInterface {
+  virtual float cost() const pure;
+  virtual float price() const pure;
+};
+
 class Item;
-interface ItemInterface {
+interface ItemInterface extends MarkUpInterface {
   virtual long number() const pure;
   virtual Item &stock(const Asset &asset, const Currency &cost) pure;
   virtual void unstock(const Item &item) pure;
@@ -51,6 +56,8 @@ public:
   virtual void unstock(const Item &item){};
   virtual int itemsToSell() const { throw "Not implemented"; }
   virtual int itemsBought() const { throw "Not implemented"; }
+  virtual float cost() const { return _cost.value(); };
+  virtual float price() const { return _cost.value() * 1.5; };
 };
 
 typedef std::vector<Item> ItemList;
