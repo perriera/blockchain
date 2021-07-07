@@ -100,6 +100,7 @@ add_executable(run-unittests
 	test/test_Chain.cpp
 	test/test_FakeIt.cpp
 	test/test_Transaction.cpp
+    test/test_TransactionsFakeit.cpp
 )
 target_include_directories(run-unittests
 	PUBLIC
