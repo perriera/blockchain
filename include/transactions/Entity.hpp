@@ -10,10 +10,17 @@
 #include "Responder.hpp"
 #include "Transaction.hpp"
 
+interface ExchangeInterface {
+  virtual float networth() pure;
+  virtual float deposit(const Currency &amount) pure;
+  virtual float withdrawal(const Currency &amount) pure;
+};
+
 interface EntityInterface extends InitiatorInterface with ResponderInterface
-    with InventoryInterface with ItemInterface{};
+    with InventoryInterface with ItemInterface with ExchangeInterface{};
 
 class Entity implements EntityInterface {
+  float _money = 0.00;
   Inventory _inventory;
 
 public:
@@ -44,6 +51,15 @@ public:
   };
   virtual float cost() const { throw "Not implemented"; };
   virtual float price() const { throw "Not implemented"; };
+  virtual float deposit(const Currency &amount) {
+    _money += amount.value();
+    return _money;
+  };
+  virtual float withdrawal(const Currency &amount) {
+    _money -= amount.value();
+    return _money;
+  };
+  virtual float networth() { return _money; };
 };
 
 #endif // _ENTITY_HPP
