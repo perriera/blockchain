@@ -30,7 +30,7 @@ SCENARIO("Verify Transaction (seller.sell(information))", "[Transaction]") {
   seller.stock(information, USD(5));
   seller.stock(information, USD(5));
   REQUIRE(seller.itemsToSell() == 2);
-  seller.sell(information);
+  seller.sell(information, USD(7));
   REQUIRE(seller.itemsToSell() == 1);
 }
 
@@ -44,10 +44,10 @@ SCENARIO("Verify Transaction (buyer.buy(item))", "[Transaction]") {
   seller.stock(information, USD(5));
   seller.stock(information, USD(5));
   REQUIRE(seller.itemsToSell() == 2);
-  auto item = seller.sell(information);
+  auto item = seller.sell(information, USD(7));
   REQUIRE(seller.itemsToSell() == 1);
   REQUIRE(buyer.itemsBought() == 0);
-  buyer.buy(item);
+  buyer.buy(item, USD(7));
   REQUIRE(buyer.itemsBought() == 1);
 }
 

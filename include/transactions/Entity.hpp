@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "../../extra/include/Definitions.hpp"
+#include "Currency.hpp"
 #include "Initiator.hpp"
 #include "Inventory.hpp"
 #include "Responder.hpp"
@@ -22,8 +23,12 @@ public:
   virtual Transaction deposit(const AssetInterface *asset);
   virtual Transaction acquire(const AssetInterface *asset);
   virtual Transaction withdraw(const AssetInterface *asset);
-  virtual void buy(const Item &item) { return _inventory.buy(item); }
-  virtual Item sell(const Asset &asset) { return _inventory.sell(asset); }
+  virtual void buy(const Item &item, const Currency &currency) {
+    return _inventory.buy(item, currency);
+  }
+  virtual Item sell(const Asset &asset, const Currency &currency) {
+    return _inventory.sell(asset, currency);
+  }
   virtual long number() const { return _inventory.number(); }
   virtual Item &stock(const Asset &asset, const Currency &cost) {
     return _inventory.stock(asset, cost);

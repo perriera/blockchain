@@ -8,10 +8,10 @@ using namespace std;
 
 void Transaction::provide() {
   auto buyer = reinterpret_cast<Entity *>(_initiator);
-  auto seller = reinterpret_cast<Entity *>(_responder);
-  auto asset = reinterpret_cast<const Asset *>(this->_asset);
-  auto item = seller->sell(*asset);
-  buyer->buy(item);
+  // auto seller = reinterpret_cast<Entity *>(_responder);
+  // auto asset = reinterpret_cast<const Asset *>(this->_asset);
+  // auto item = seller->sell(*asset);
+  // buyer->buy(item);
 }
 
 void Transaction::consume() {

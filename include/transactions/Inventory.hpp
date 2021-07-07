@@ -15,16 +15,18 @@ interface HasInterface {
 };
 
 interface InventoryInterface extends HasInterface {
-  virtual void buy(const Item &item) pure;
-  virtual Item sell(const Asset &asset) pure;
+  virtual void buy(const Item &item, const Currency &currency) pure;
+  virtual Item sell(const Asset &asset, const Currency &currency) pure;
 };
 
 class Inventory implements InventoryInterface with ItemInterface {
   ItemList _items;
 
 public:
-  virtual void buy(const Item &item) { _items.push_back(item); }
-  virtual Item sell(const Asset &asset) {
+  virtual void buy(const Item &item, const Currency &currency) {
+    _items.push_back(item);
+  }
+  virtual Item sell(const Asset &asset, const Currency &currency) {
     Item itemSold;
     ItemList newList;
     bool sold = false;
