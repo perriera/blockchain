@@ -60,6 +60,6 @@ SCENARIO("Verify Transaction (widthdrawl/deposit)", "[Transaction]") {
   REQUIRE(seller.networth() == 0.00);
   seller.deposit(USD(7));
   buyer.withdrawal(USD(7));
-  REQUIRE(seller.networth() == USD(7).value());
-  REQUIRE(buyer.networth() == -USD(7).value());
+  REQUIRE(seller.networth() == USD(7));
+  REQUIRE(buyer.networth() == -USD(7));
 }
