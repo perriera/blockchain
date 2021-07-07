@@ -24,6 +24,8 @@ class Inventory implements InventoryInterface with ItemInterface {
 
 public:
   virtual void buy(const Item &item, const Currency &currency) {
+    auto a = currency.value();
+    auto b = item.price();
     if (currency > item.price())
       _items.push_back(item);
     else

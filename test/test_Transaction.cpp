@@ -63,3 +63,24 @@ SCENARIO("Verify Transaction (widthdrawl/deposit)", "[Transaction]") {
   REQUIRE(seller.networth() == USD(7));
   REQUIRE(buyer.networth() == -USD(7));
 }
+
+SCENARIO("Verify Transaction (buyer.buy(item)) throws", "[Transaction]") {
+
+  BillGates buyer;
+  Walmart seller;
+  NewsWeekMagazine information;
+
+  REQUIRE(seller.itemsToSell() == 0);
+  seller.stock(information, USD(5));
+  seller.stock(information, USD(5));
+  REQUIRE(seller.itemsToSell() == 2);
+  auto item = seller.sell(information, USD(7));
+  REQUIRE(seller.itemsToSell() == 1);
+  REQUIRE(buyer.itemsBought() == 0);
+  try {
+    buyer.buy(item, USD(1));
+  } catch (const char *ex) {
+    cout << ex << endl;
+  }
+  REQUIRE(buyer.itemsBought() == 0);
+}
