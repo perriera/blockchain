@@ -84,3 +84,26 @@ SCENARIO("Verify Transaction (buyer.buy(item)) throws", "[Transaction]") {
   }
   REQUIRE(buyer.itemsBought() == 0);
 }
+
+SCENARIO("Verify Transaction (buyer.initiate(item)) throws", "[Transaction]") {
+
+  BillGates buyer;
+  Walmart seller;
+  NewsWeekMagazine information;
+
+  buyer.deposit(USD(20));
+  REQUIRE(buyer.networth() == USD(20));
+  REQUIRE(seller.networth() == USD(0));
+  REQUIRE(buyer.itemsBought() == 0);
+  REQUIRE(seller.itemsToSell() == 0);
+  seller.stock(information, USD(5));
+  seller.stock(information, USD(5));
+  REQUIRE(seller.itemsToSell() == 2);
+
+  auto t1 = buyer.initiate(information);
+  auto t2 = seller.respond(&t1);
+  // REQUIRE(seller.itemsToSell() == 1);
+  // REQUIRE(buyer.itemsBought() == 1);
+  // REQUIRE(buyer.networth() == USD(15));
+  // REQUIRE(seller.networth() == USD(5));
+}
