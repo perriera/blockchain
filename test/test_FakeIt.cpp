@@ -17,10 +17,14 @@ struct SomeInterface {
   virtual int bar(int, int) = 0;
 };
 
+//
+// https://github.com/eranpeer/FakeIt/wiki/Quickstart
+//
+
 using namespace std;
 using namespace fakeit;
 
-SCENARIO("Verify FakeIt", "[FakeIt]") {
+SCENARIO("Verify FakeIt: Stubbing", "[FakeIt]") {
 
   Mock<SomeInterface> mock;
   // Stub a method to return a value once
@@ -40,4 +44,36 @@ SCENARIO("Verify FakeIt", "[FakeIt]") {
   // Always return a value (The next two lines do exactly the same)
   When(Method(mock, foo)).AlwaysReturn(1);
   Method(mock, foo) = 1;
+}
+
+SCENARIO("Verify FakeIt: more specific", "[FakeIt]") {
+
+  Mock<SomeInterface> mock;
+  // Stub foo(1) to return the value '100' once (The next two lines do the same)
+  When(Method(mock, foo).Using(1)).Return(100);
+  When(Method(mock, foo)(1)).Return(100);
+
+  // Stub 'foo(1)' to always return '100'. For all other calls always return 0.
+  When(Method(mock, foo))
+      .AlwaysReturn(0); // Any invocation of foo will return 0
+  When(Method(mock, foo).Using(1))
+      .AlwaysReturn(100); // override only for 'foo(1)'
+
+  // The next two lines do exactly the same
+  When(Method(mock, foo).Using(1)).AlwaysReturn(0);
+  Method(mock, foo).Using(1) = 0;
+}
+
+SCENARIO("Verify FakeIt: exceptions", "[FakeIt]") {
+
+  Mock<SomeInterface> mock;
+  // Stub foo(1) to return the value '100' once (The next two lines do the same)
+  // Throw once
+  When(Method(mock, foo)).Throw(exception());
+  // Throw several times
+  When(Method(mock, foo)).Throw(exception(), exception());
+  // Throw many times
+  When(Method(mock, foo)).Throw(23_Times(exception()));
+  // Always throw
+  When(Method(mock, foo)).AlwaysThrow(exception());
 }

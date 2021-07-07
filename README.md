@@ -42,4 +42,6 @@ https://www.tutorialspoint.com/how-to-install-doxygen-on-ubuntu
 https://www.freecodecamp.org/news/a-beginners-guide-to-git-what-is-a-changelog-and-how-to-generate-it/
 https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html
 https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-20-04/
+https://github.com/eranpeer/FakeIt/wiki/Quickstart
+
 
