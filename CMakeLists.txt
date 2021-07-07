@@ -98,6 +98,7 @@ add_executable(run-unittests
 	test/test_HelloWorld.cpp
 	test/test_Block.cpp
 	test/test_Chain.cpp
+	test/test_FakeIt.cpp
 	test/test_Transaction.cpp
 )
 target_include_directories(run-unittests

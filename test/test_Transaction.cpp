@@ -80,7 +80,7 @@ SCENARIO("Verify Transaction (buyer.buy(item)) throws", "[Transaction]") {
   try {
     buyer.buy(item, USD(1));
   } catch (const char *ex) {
-    cout << ex << endl;
+    // cout << ex << endl;
   }
   REQUIRE(buyer.itemsBought() == 0);
 }
